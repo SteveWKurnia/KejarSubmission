@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "807069114628",
+    "firebase_url": "https://kejarsubmission.firebaseio.com",
+    "project_id": "kejarsubmission",
+    "storage_bucket": "kejarsubmission.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807069114628:android:09413d3c5e876525323051",
+        "android_client_info": {
+          "package_name": "android.wk.com.kejarsubmission2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807069114628-pvga6ud7j3mmm532iadck19iuvg2i5ri.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "android.wk.com.kejarsubmission2",
+            "certificate_hash": "fbef89e80c92321cce66084c0bc159298559996c"
+          }
+        },
+        {
+          "client_id": "807069114628-ff1flcuvhorqec9usmut6vdilnjek7da.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1ZlsvpdXOW3FzdJpxuqEf9DZ6PkvtofY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807069114628-ff1flcuvhorqec9usmut6vdilnjek7da.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

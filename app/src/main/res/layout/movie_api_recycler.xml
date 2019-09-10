@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="@dimen/recycler_margin"
+        android:backgroundTint="#80ffffff">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/poster_recycler_api"
+                android:src="@drawable/poster_gotham"
+                android:layout_width="@dimen/poster_width"
+                android:layout_height="@dimen/poster_height"/>
+
+            <LinearLayout
+                android:layout_marginStart="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title_recycler_api"
+                    tools:text="Gotham"
+                    style="@style/AppTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:marqueeRepeatLimit="marquee_forever"/>
+
+                <TextView
+                    android:id="@+id/release_date_recycler_api"
+                    tools:text="December 2, 2018"
+                    style="@style/PlainText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:background="@color/colorPrimary"
+                        android:textColor="@color/colorAccent"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:id="@+id/rating_recycler_api"
+                        tools:text="60"
+                        android:drawableStart="@drawable/ic_star_black_24dp"
+                        android:drawableTint="@color/colorYellow"
+                        android:drawablePadding="6dp"
+                        style="@style/PlainText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/synopsis_api"
+                    tools:text="@tools:sample/lorem"
+                    style="@style/PlainText"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

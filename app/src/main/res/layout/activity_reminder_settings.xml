@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blue_gradient"
+    tools:context=".ReminderSettingsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_reminder"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_button_reminder"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="@string/reminder"
+            style="@style/HighlightedAppTitle"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:padding="20dp"
+        android:layout_below="@id/toolbar_reminder"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5">
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:background="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/daily_notif_tv"
+                    style="@style/ColoredText"
+                    android:text="@string/daily_reminder"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"/>
+
+                <Switch
+                    android:id="@+id/daily_reminder_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:paddingBottom="20dp"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:background="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            app:cardCornerRadius="10dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/colorPrimary">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/new_notif_tv"
+                    style="@style/ColoredText"
+                    android:text="@string/new_reminder"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"/>
+
+                <Switch
+                    android:id="@+id/new_reminder_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:paddingBottom="20dp"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout>

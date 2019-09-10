@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="movies_nav">Film layar lebar</string>
+    <string name="tv_nav">Film Televisi</string>
+    <string name="synopsis">Sinopsis</string>
+    <string name="movie_poster_content_desc">Poster Film</string>
+    <string name="back_button">Tombol Kembali</string>
+    <string name="detail">Detil Film</string>
+    <string name="fav">Favorit</string>
+    <string name="to_fav">Favoritkan</string>
+    <string name="added_to_fav">Difavoritkan</string>
+    <string name="language_settings">Pengaturan bahasa</string>
+    <string name="search">Cari</string>
+    <string name="reminder">Aturan notifikasi</string>
+    <string name="daily_reminder">Notifikasi harian</string>
+    <string name="new_reminder">Notifikasi film baru</string>
+    <string name="appwidget_text">Contoh</string>
+    <string name="add_widget">Tambahkan widget</string>
+    <!--Movies-->
+
+
+    <!--Movies-->
+
+
+    <!--TVShows-->
+
+
+    <!--TVShows-->
+
+</resources>
