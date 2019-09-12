@@ -4,14 +4,15 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 
-import android.appwidget.AppWidgetManager;
+import android.database.Cursor;
 import android.wk.com.kejarsubmission2.room.entities.MovieEntity;
 import android.wk.com.kejarsubmission2.room.repositories.MovieRepository;
 
 import java.util.List;
 
-public class FavoriteViewModel extends AndroidViewModel {
+public class FavoriteViewModel extends AndroidViewModel{
     private MovieRepository repository;
     private LiveData<List<MovieEntity>> allMovies;
 
@@ -27,4 +28,6 @@ public class FavoriteViewModel extends AndroidViewModel {
     public LiveData<List<MovieEntity>> getAllMovies(){
         return allMovies;
     }
+
+
 }

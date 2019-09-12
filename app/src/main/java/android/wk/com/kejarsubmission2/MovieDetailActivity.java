@@ -1,32 +1,27 @@
 package android.wk.com.kejarsubmission2;
 
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
+import android.content.ContentValues;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.wk.com.kejarsubmission2.models.MovieModel;
 import android.wk.com.kejarsubmission2.room.entities.MovieEntity;
 import android.wk.com.kejarsubmission2.room.repositories.MovieRepository;
 import android.wk.com.kejarsubmission2.utilities.ImageSupport;
-import android.wk.com.kejarsubmission2.widget.FavoriteWidget;
 
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import static android.wk.com.kejarsubmission2.contentprovider.MyContentProvider.CONTENT_URI;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
@@ -53,7 +48,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         back_button = findViewById(R.id.back_button);
 
         ImageSupport imageSupport = new ImageSupport();
-        Picasso.get().load(imageSupport.getPosterFile() + imageSupport.getPosterSize() + movieModel.getPoster_path()).resize((int)getResources().getDimension(R.dimen.poster_width),(int) getResources().getDimension(R.dimen.poster_height)).into(poster);
+        Picasso.get().load(imageSupport.getPosterFile() + imageSupport.getPosterSize() + movieModel.getPoster_path()).resize((int) getResources().getDimension(R.dimen.poster_width), (int) getResources().getDimension(R.dimen.poster_height)).into(poster);
         title.setText(movieModel.getTitle());
         synopsis.setText(movieModel.getOverview());
         Double rating_api = movieModel.getVote_average();
@@ -85,23 +80,33 @@ public class MovieDetailActivity extends AppCompatActivity {
 
                 MovieRepository repository = new MovieRepository(getApplication());
                 boolean isFavorite = false;
-                for (int i = 0; i < allMovies.size();i++){
-                    if (movieEntity.getTitle().equals(allMovies.get(i).getTitle())){
+                for (int i = 0; i < allMovies.size(); i++) {
+                    if (movieEntity.getTitle().equals(allMovies.get(i).getTitle())) {
                         isFavorite = true;
-                        Log.d("room","title: " + allMovies.get(i).getTitle());
+                        Log.d("room", "title: " + allMovies.get(i).getTitle());
                         break;
                     }
                 }
-                if (isFavorite)Toast.makeText(v.getContext(), "Already added to fav",Toast.LENGTH_SHORT).show();
-                else{
+                if (isFavorite)
+                    Toast.makeText(v.getContext(), "Already added to fav", Toast.LENGTH_SHORT).show();
+                else {
+                    ContentValues values = new ContentValues();
+                    values.put("ID", movieEntity.getId());
+                    values.put("TITLE", movieEntity.getTitle());
+                    values.put("OVERVIEW", movieEntity.getOverview());
+                    values.put("RELEASE_DATE", movieEntity.getRelease_date());
+                    values.put("VOTE_AVERAGE", movieEntity.getVote_average());
+                    values.put("POSTER_PATH", movieEntity.getPoster_path());
+                    getContentResolver().insert(CONTENT_URI, values);
+
                     repository.insert(movieEntity);
-                    Toast.makeText(v.getContext(),R.string.added_to_fav,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), R.string.added_to_fav, Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    private void setData(){
+    private void setData() {
         if (getIntent().hasExtra("parcelledAPIData")) {
             movieModel = getIntent().getParcelableExtra("parcelledAPIData");
         }

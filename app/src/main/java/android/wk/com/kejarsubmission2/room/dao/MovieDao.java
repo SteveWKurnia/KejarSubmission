@@ -1,6 +1,8 @@
 package android.wk.com.kejarsubmission2.room.dao;
 
 import androidx.lifecycle.LiveData;
+
+import android.database.Cursor;
 import android.wk.com.kejarsubmission2.room.entities.MovieEntity;
 
 import java.util.List;
@@ -17,7 +19,7 @@ public interface MovieDao {
     List<MovieEntity> getListData();
 
     @Insert
-    void insert(MovieEntity movieEntity);
+    long insert(MovieEntity movieEntity);
 
     @Delete
     void delete(MovieEntity movieEntity);
@@ -25,5 +27,9 @@ public interface MovieDao {
     @Query("SELECT * FROM favorite_table")
     LiveData<List<MovieEntity>> getAllData();
 
+    @Query("SELECT * FROM favorite_table")
+    Cursor getCursorData();
 
+    @Query("DELETE FROM " + MovieEntity.TABLE_NAME + " WHERE ID = :id" )
+    int deleteById(String id);
 }
